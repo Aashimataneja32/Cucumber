@@ -1,0 +1,26 @@
+//  public WebDriver driver;
+	 @Given("^Intialize the web driver$")
+	    public void intialize_the_web_driver() throws Throwable {
+		// driver=new ChromeDriver();
+		 intialization();
+	    }
+
+	 	//@Test
+	    @When("^user navaigates to website$")
+	    public void user_navaigates_to_website() throws Throwable {
+	    	 driver.get("https://login.salesforce.com/?locale=in");
+	    	//LaunchUrl();
+	    }
+
+	   @And("^enter username and password and click on login button$")
+	    public void enter_username_and_password_and_click_on_login_button() throws Throwable {
+		   loginPageObject LPO = new loginPageObject(driver);
+		   LPO.EnterUsername().sendKeys("Ram");;
+		   LPO.EnterPassword().sendKeys("1234");;
+		   LPO.ClickLoginButton().click();
+	    }
+	    
+	    @Then("^user should be able to login sucessfully$")
+	    public void user_should_be_able_to_login_sucessfully() throws Throwable {
+	    	  System.out.println("hello");
+	    }
